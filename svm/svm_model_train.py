@@ -1,3 +1,14 @@
+##############################################################
+##############################################################
+# This is a script for training a svm model                  #
+# Note:                                                      #
+#   Feature file must be of the following form:              #
+#       Line0: label of the features                         #
+#       Col0: id of the examples                             #
+#       Col1-n: value of features                            #
+##############################################################
+##############################################################
+
 import numpy as np
 import os
 import csv
