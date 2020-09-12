@@ -1,16 +1,27 @@
+##############################################################
+##############################################################
+# This is a script for training a kmeans model               #
+# Note:                                                      #
+#   Feature file must be of the following form:              #
+#       Line0: label of the features                         #
+#       Col0: id of the examples                             #
+#       Col1-n: value of features                            #
+##############################################################
+##############################################################
+
 import numpy as np
 import os
 import csv
 
 from sklearn.cluster import KMeans
 
-cluster_size=10
+cluster_size=os.environ['CLUSTER_SIZE']
 centerfile=open('cluster_centers.csv','a')
 
 X = np.genfromtxt(os.environ['FEATURES_FILE'], delimiter=',',dtype=None, encoding='utf-8')
 X = np.delete(X,(0),axis=0)
-names = X[:,1]
-X = np.delete(X,(0,1),axis=1)
+names = X[:,0]
+X = np.delete(X,(0),axis=1)
 
 size = len(X)
 print(size)
